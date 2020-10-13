@@ -5,7 +5,10 @@
  Highscore, Help function, Instruction manual, quiz question with 4 choices.<br>
  
 ## Installation
+- Installation of your virtual environment
+    - python -m venv venv
 - You need to install django in your virtual environment
+    - pip install django
 
 ## Execution
 - python manage.py runserver

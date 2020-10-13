@@ -8,4 +8,8 @@
     {{ lastname }}
     <br><br>
     {{ year }}
+    <br><br>
+    {% load static %}
+    <img src="{% static "example.png" %}" alt="My image" width="200px" />
+
 {% endblock %}
