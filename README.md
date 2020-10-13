@@ -6,3 +6,7 @@
  
 ## Installation
 - You need to install django in your virtual environment
+
+## Execution
+- python manage.py runserver
+
