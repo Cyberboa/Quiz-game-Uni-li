@@ -4,6 +4,6 @@ from django.views.generic import View, TemplateView
 
 
 # Create your views here.
-class HomeViewC(View):
-    def get(self, *args):
-        return HttpResponse("Hello World from the Class")
+class HomeView(View):
+    def get(httprequest, *args):
+        return render(httprequest, "home.html", {})

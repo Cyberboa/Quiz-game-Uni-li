@@ -15,10 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from quizGameApp.views import HomeViewC
+from quizGameApp.views import HomeView
 
 urlpatterns = [
-    path('', HomeViewC.as_view()),
+    path('', HomeView.get),
     path('admin/', admin.site.urls),
-    path('welcome/', HomeViewC.as_view()),
+    path('welcome/', HomeView.get),
 ]
