@@ -1,1 +1,11 @@
-<h1>Hello World using a template</h1>
+{% extends 'base.html'%}
+
+{% block mainContent %}
+    <h1>Hello World using a template</h1>
+
+    {{ name }}
+    <br><br>
+    {{ lastname }}
+    <br><br>
+    {{ year }}
+{% endblock %}
