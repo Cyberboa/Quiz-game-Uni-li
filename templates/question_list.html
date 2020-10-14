@@ -6,6 +6,11 @@
 
 {% block questionListContent %}
     {% for obj in allQuestions %}
-        {{ obj.question }} - {{ obj.option1 }} <br><br>
+        <br>{{ obj.question }} <br><br>
+        {{ obj.option1 }} <br>
+        {{ obj.option2 }} <br>
+        {{ obj.option3 }} <br>
+        {{ obj.option4 }} <br><br>
+        {{ obj.corransw }} <br>
     {% endfor %}
 {% endblock %}
