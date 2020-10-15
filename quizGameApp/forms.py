@@ -1,9 +1,8 @@
 from django import forms
+from .models import Question
 
-class AddQuestionForm(forms.Form):
-    question = forms.CharField(max_length=100)
-    option1 = forms.CharField(max_length=100)
-    option2 = forms.CharField(max_length=100)
-    option3 = forms.CharField(max_length=100)
-    option4 = forms.CharField(max_length=100)
-    corransw = forms.CharField(max_length=100)
+
+class AddQuestionForm(forms.ModelFormm):
+    class Meta:
+        model = Question
+        fields = ['question', 'option1', 'option2', 'option3', 'option4', 'corransw']
