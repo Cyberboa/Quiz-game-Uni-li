@@ -7,6 +7,8 @@
 ## Installation
 - Installation of your virtual environment
     - python -m venv venv
+- How to activate your virtual environment
+    - venv\Scripts\activate.bat
 - You need to install django in your virtual environment
     - pip install django
 
