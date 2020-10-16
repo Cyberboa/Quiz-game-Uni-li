@@ -17,5 +17,3 @@
 ## Execution
 - python manage.py runserver
 
-- balbalbalblabla Test
-
