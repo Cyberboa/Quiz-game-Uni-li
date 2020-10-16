@@ -1,10 +1,27 @@
 from django.shortcuts import render
-from django.views.generic import View, TemplateView
+from django.views.generic import View
 from .models import Question
 from .forms import AddQuestionForm
 
-
 # Create your views here.
+"""
+A class used to represent a question
+
+...
+
+Attributes
+----------
+my_dict : dict of str : str and int
+all_questions : QuerySet
+context : dict of all_questions and title
+my_form : AddQuestionForm to add a question to the DB
+
+Methods
+-------
+
+"""
+
+
 class HomeView(View):
     def get(httprequest, *args):
         my_dict = {
@@ -15,9 +32,9 @@ class HomeView(View):
         return render(httprequest, "home.html", my_dict)
 
     def questionList(httprequest, *args, **kwargs):
-        allQuestions = Question.objects.all()
+        all_questions = Question.objects.all()
         context = {
-            "allQuestions": allQuestions,
+            "all_questions": all_questions,
             "title": "My question list"
         }
         return render(httprequest, "question_list.html", context)
