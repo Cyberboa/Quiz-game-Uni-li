@@ -11,6 +11,8 @@
     - venv\Scripts\activate.bat
 - You need to install django in your virtual environment
     - pip install django
+- You also need to install crispy forms (easy layouting)
+    - pip install django-crispy-forms
 
 ## Execution
 - python manage.py runserver
