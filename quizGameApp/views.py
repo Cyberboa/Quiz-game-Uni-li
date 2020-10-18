@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import View
 from .models import Question
 from .forms import AddQuestionForm
+from django.contrib.auth import authenticate
 
 # Create your views here.
 """
@@ -24,12 +25,7 @@ Methods
 
 class HomeView(View):
     def get(httprequest, *args):
-        my_dict = {
-            "name": "roshan",
-            "lastname": "hausammann",
-            "year": 1922,
-        }
-        return render(httprequest, "home.html", my_dict)
+        return render(httprequest, "home.html")
 
     def questionList(httprequest, *args, **kwargs):
         all_questions = Question.objects.all()
