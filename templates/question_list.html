@@ -18,7 +18,7 @@
                 for (let index = 0; index < input_elements.length; index++) {
                     if (input_elements[index].type == "radio") {
                         if (input_elements[index].checked) {
-                            document.getElementById("UserAnswers").innerHTML += "Q " + input_elements[index].name + " The Answer you are selected is :" + input_elements[index].value + "<br/>";
+                            document.getElementById("UserAnswers").innerHTML += "Q " + input_elements[index].name + " The Answer you have selected is : " + input_elements[index].value + "<br/>";
                         }
                     }
                 }
@@ -52,13 +52,14 @@
                 </tr>
                 <tr>
                     <td><label id="correct_answer" class="rb"
-                               style="display:none;color: limegreen"><b>{{ result.correct_answer }}</b></label>
+                               style="display:none;color: limegreen"><b>The correct answer is: {{ result.correct_answer }}</b></label>
                     </td>
                 </tr>
             </table>
         {% endfor %}
         <hr/>
         <input type="submit" value="Click for result" id="btn-question-success" onclick="get_answers();"/>
+        <hr/>
         <b id="UserAnswers"></b>
     </div>
 {% endblock %}
