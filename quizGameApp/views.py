@@ -33,11 +33,11 @@ class HomeView(View):
 
     def questionList(httprequest, *args, **kwargs):
         all_questions = Question.objects.all()
-        context = {
+        dict_question = {
             "all_questions": all_questions,
-            "title": "My question list"
+            "title": "Quiz Game Uni Liechtenstein"
         }
-        return render(httprequest, "question_list.html", context)
+        return render(httprequest, "question_list.html", dict_question)
 
     def questionCreateView(httprequest, *args, **kwargs):
         my_form = AddQuestionForm(httprequest.POST or None)

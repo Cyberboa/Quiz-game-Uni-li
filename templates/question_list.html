@@ -1,16 +1,64 @@
 {% extends 'base.html' %}
 
 {% block mainContent %}
-    <h1>{{ title }}</h1>
+    <div style="text-align: center;">
+        <h1>{{ title }}</h1>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("#btn-question-success").click(function () {
+                    $(".rb").show();
+                    $(".rb").attr("disabled", true);
+                });
+            });
+
+            function get_answers() {
+                document.getElementById(UserAnswers).innerHTML = "";
+                const input_elements = document.getElementsByTagName('input');
+                for (let index = 0; index < input_elements.length; index++) {
+                    if (input_elements[index].type == "radio") {
+                        if (input_elements[index].checked) {
+                            document.getElementById(UserAnswers).innerHTML += "Q " + input_elements[index].name + " The Answer you are selected is :" + input_elements[index].value + "<br/>";
+                        }
+                    }
+                }
+            }
+        </script>
+    </div>
 {% endblock %}
 
 {% block questionListContent %}
-    {% for obj in all_questions %}
-        <br>{{ obj.question }} <br><br>
-        {{ obj.option1 }} <br>
-        {{ obj.option2 }} <br>
-        {{ obj.option3 }} <br>
-        {{ obj.option4 }} <br><br>
-        {{ obj.corransw }} <br>
-    {% endfor %}
+    <div style="padding-left: 30px;">
+        {% for result in all_questions %}
+            <table>
+                <tr>
+                    <td>{{ result.id }} {{ result.question }} ?</td>
+                </tr>
+                <tr>
+                    <td><input type="radio" id="Option1" class="rb" name="{{ result.id }}"
+                               value="{{ result.option1 }}">{{ result.option1 }}</td>
+                </tr>
+                <tr>
+                    <td><input type="radio" id="Option2" class="rb" name="{{ result.id }}"
+                               value="{{ result.option2 }}">{{ result.option2 }}</td>
+                </tr>
+                <tr>
+                    <td><input type="radio" id="Option3" class="rb" name="{{ result.id }}"
+                               value="{{ result.option3 }}">{{ result.option3 }}</td>
+                </tr>
+                <tr>
+                    <td><input type="radio" id="Option4" class="rb" name="{{ result.id }}"
+                               value="{{ result.option4 }}">{{ result.option4 }}</td>
+                </tr>
+                <tr>
+                    <td><label id="correct_answer" class="rb"
+                               style="display:none;color: limegreen"><b>{{ result.correct_answer }}</b></label>
+                    </td>
+                </tr>
+            </table>
+        {% endfor %}
+        <hr/>
+        <input type="submit" value="Click for result" id="btn-question-success" onclick="get_answers();"/>
+        <b id="UserAnswers"></b>
+    </div>
 {% endblock %}
