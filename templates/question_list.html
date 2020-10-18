@@ -13,12 +13,12 @@
             });
 
             function get_answers() {
-                document.getElementById(UserAnswers).innerHTML = "";
+                document.getElementById("UserAnswers").innerHTML = "";
                 const input_elements = document.getElementsByTagName('input');
                 for (let index = 0; index < input_elements.length; index++) {
                     if (input_elements[index].type == "radio") {
                         if (input_elements[index].checked) {
-                            document.getElementById(UserAnswers).innerHTML += "Q " + input_elements[index].name + " The Answer you are selected is :" + input_elements[index].value + "<br/>";
+                            document.getElementById("UserAnswers").innerHTML += "Q " + input_elements[index].name + " The Answer you are selected is :" + input_elements[index].value + "<br/>";
                         }
                     }
                 }
