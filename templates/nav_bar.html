@@ -33,7 +33,7 @@
         </ul>
         <div>
             {% if user.is_authenticated %}
-                <p>Welcome, {{ user.get_username }}. Enjoy your Quiz. <a href="/logout/" class="header-link">Sign
+                <p>Welcome, {{ user.get_username }}. <a href="/logout/" class="header-link">Sign
                     out</a></p>
             {% else %}
                 <a href="/login/" class="header-link">Login</a>
