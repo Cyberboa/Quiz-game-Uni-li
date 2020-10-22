@@ -20,7 +20,11 @@
             </li>
         </ul>
         <div>
-            <a href="/login/" class="header-link">Login</a>
+            {% if user.is_authenticated %}
+                <p>Welcome, {{ user.get_username }}. Enjoy your Quiz.</p>
+            {% else %}
+                <a href="/login/" class="header-link">Login</a>
+            {% endif %}
         </div>
     </div>
 </nav>
