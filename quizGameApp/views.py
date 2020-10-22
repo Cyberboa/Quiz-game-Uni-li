@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.views.generic import View
 from .models import Question
@@ -24,9 +25,11 @@ Methods
 
 
 class HomeView(View):
+
     def get(httprequest, *args):
         return render(httprequest, "home.html")
 
+    @login_required
     def questionList(httprequest, *args, **kwargs):
         all_questions = Question.objects.all()
         dict_question = {
@@ -35,6 +38,7 @@ class HomeView(View):
         }
         return render(httprequest, "question_list.html", dict_question)
 
+    @login_required
     def questionCreateView(httprequest, *args, **kwargs):
         my_form = AddQuestionForm(httprequest.POST or None)
         if my_form.is_valid():
