@@ -35,7 +35,10 @@
                     <td>{{ result.id }} {{ result.question }} ?</td>
                 </tr>
                 <tr>
-                    <td><img src="/media/{{ result.question_image }}"/></td>
+                    {% if result.question_image == "" %}
+                    {% else %}
+                        <td><img src="/media/{{ result.question_image }}"/></td>
+                    {% endif %}
                 </tr>
                 <tr>
                     <td><input type="radio" id="Option1" class="rb" name="{{ result.id }}"
