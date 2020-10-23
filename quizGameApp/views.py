@@ -34,7 +34,6 @@ class HomeView(View):
         all_questions = Question.objects.all()
         dict_question = {
             "all_questions": all_questions,
-            "title": "Quiz Game Uni Liechtenstein"
         }
         return render(httprequest, "question_list.html", dict_question)
 

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'quizGameApp',
     'registerUser',
+    'django_sass',
 ]
 
 MIDDLEWARE = [
