@@ -35,6 +35,9 @@
                     <td>{{ result.id }} {{ result.question }} ?</td>
                 </tr>
                 <tr>
+                    <td><img src="/media/{{ result.question_image }}"/></td>
+                </tr>
+                <tr>
                     <td><input type="radio" id="Option1" class="rb" name="{{ result.id }}"
                                value="{{ result.option1 }}">{{ result.option1 }}</td>
                 </tr>
@@ -52,7 +55,8 @@
                 </tr>
                 <tr>
                     <td><label id="correct_answer" class="rb"
-                               style="display:none;color: limegreen"><b>The correct answer is: {{ result.correct_answer }}</b></label>
+                               style="display:none;color: limegreen"><b>The correct answer
+                        is: {{ result.correct_answer }}</b></label>
                     </td>
                 </tr>
             </table>
