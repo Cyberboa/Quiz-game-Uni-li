@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'quizGameApp',
     'registerUser',
     'django_sass',
+    'highScore',
 ]
 
 MIDDLEWARE = [

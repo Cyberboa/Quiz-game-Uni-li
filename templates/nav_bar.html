@@ -18,6 +18,13 @@
                 <li>
                     <a class="nav-link" href="/admin/">Admin</a>
                 </li>
+                <li>
+                    <a class="nav-link" href="/score/">High Score</a>
+                </li>
+                <li>
+                    <p>Welcome, {{ user.get_username }}. <a href="/logout/" class="header-link">Sign
+                        out</a></p>
+                </li>
             {% else %}
                 <li>
                     <a class="nav-link disabled" href="../questions/">Questions</a>
@@ -28,15 +35,13 @@
                 <li>
                     <a class="nav-link disabled" href="../admin/">Admin</a>
                 </li>
+                <li>
+                    <a class="nav-link disabled" href="/score/">High Score</a>
+                </li>
+                <li>
+                    <a href="/login/" class="header-link">Login</a>
+                </li>
             {% endif %}
         </ul>
-        <div>
-            {% if user.is_authenticated %}
-                <p>Welcome, {{ user.get_username }}. <a href="/logout/" class="header-link">Sign
-                    out</a></p>
-            {% else %}
-                <a href="/login/" class="header-link">Login</a>
-            {% endif %}
-        </div>
     </div>
 </nav>

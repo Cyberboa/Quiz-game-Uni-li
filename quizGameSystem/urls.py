@@ -19,6 +19,7 @@ from django.contrib import admin
 from django.urls import path, include
 from quizGameApp.views import HomeView
 from registerUser.views import Register
+from highScore.views import Score
 
 urlpatterns = [
                   path('', HomeView.get),
@@ -26,6 +27,7 @@ urlpatterns = [
                   path('welcome/', HomeView.get),
                   path('questions/', HomeView.questionList),
                   path('create/', HomeView.questionCreateView),
+                  path('score/', Score.get),
                   path('register/', Register.registerUser),
                   path('', include("django.contrib.auth.urls")),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
