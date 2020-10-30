@@ -7,8 +7,9 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            {% if user.is_authenticated %}
+        {% if user.is_authenticated %}
+            <ul class="navbar-nav mr-auto">
+
                 <li class="nav-item">
                     <a class="nav-link" href="../questions/">Questions</a>
                 </li>
@@ -16,16 +17,16 @@
                     <a class="nav-link" href="../create/">Create Question</a>
                 </li>
                 <li>
-                    <a class="nav-link" href="/admin/">Admin</a>
-                </li>
-                <li>
                     <a class="nav-link" href="/score/">High Score</a>
                 </li>
                 <li>
-                    <p>Welcome, {{ user.get_username }}. <a href="/logout/" class="header-link">Sign
-                        out</a></p>
+                    <a class="nav-link" href="/admin/">Admin</a>
                 </li>
-            {% else %}
+            </ul>
+            <p>Welcome, {{ user.get_username }}. <a href="/logout/" class="header-link">Sign
+                out</a></p>
+        {% else %}
+            <ul class="navbar-nav mr-auto">
                 <li>
                     <a class="nav-link disabled" href="../questions/">Questions</a>
                 </li>
@@ -33,15 +34,13 @@
                     <a class="nav-link disabled" href="../create/">Create Question</a>
                 </li>
                 <li>
-                    <a class="nav-link disabled" href="../admin/">Admin</a>
-                </li>
-                <li>
                     <a class="nav-link disabled" href="/score/">High Score</a>
                 </li>
                 <li>
-                    <a href="/login/" class="header-link">Login</a>
+                    <a class="nav-link disabled" href="../admin/">Admin</a>
                 </li>
-            {% endif %}
-        </ul>
+            </ul>
+            <a href="/login/" class="header-link">Login</a>
+        {% endif %}
     </div>
 </nav>
