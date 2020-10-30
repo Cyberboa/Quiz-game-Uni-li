@@ -27,7 +27,7 @@ urlpatterns = [
                   path('welcome/', HomeView.get),
                   path('questions/', HomeView.questionList),
                   path('create/', HomeView.questionCreateView),
-                  path('score/', Score.get),
+                  path('score/', Score.scoreList),
                   path('register/', Register.registerUser),
                   path('', include("django.contrib.auth.urls")),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
