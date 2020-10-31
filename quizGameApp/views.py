@@ -3,7 +3,6 @@ from django.shortcuts import render
 from django.views.generic import View
 from .models import Question
 from .forms import AddQuestionForm
-from django.contrib.auth import authenticate
 
 # Create your views here.
 """
@@ -24,7 +23,7 @@ Methods
 """
 
 
-class HomeView(View):
+class QuestionView(View):
 
     def get(httprequest, *args):
         return render(httprequest, "home.html")

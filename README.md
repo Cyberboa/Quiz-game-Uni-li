@@ -13,11 +13,11 @@
     - pip install django
 - You also need to install crispy forms (easy layouting)
     - pip install django-crispy-forms
-- Create superuser for project members
+- Create superuser for project members (each member needs to do it on his/her own)
     - python manage.py createsuperuser
 - To compile scss to css you need to do the following:
     - pip install django-sass
 
-## Execution
+## Execution for programming
 - python manage.py runserver
 - python manage.py sass quizGameApp/static/scss/ quizGameApp/static/css/ --watch

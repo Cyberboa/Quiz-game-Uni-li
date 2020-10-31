@@ -17,16 +17,16 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from quizGameApp.views import HomeView
+from quizGameApp.views import QuestionView
 from registerUser.views import Register
 from highScore.views import Score
 
 urlpatterns = [
-                  path('', HomeView.get),
+                  path('', QuestionView.get),
                   path('admin/', admin.site.urls),
-                  path('welcome/', HomeView.get),
-                  path('questions/', HomeView.questionList),
-                  path('create/', HomeView.questionCreateView),
+                  path('welcome/', QuestionView.get),
+                  path('questions/', QuestionView.questionList, name='questions'),
+                  path('create/', QuestionView.questionCreateView),
                   path('score/', Score.scoreList),
                   path('register/', Register.registerUser),
                   path('', include("django.contrib.auth.urls")),
