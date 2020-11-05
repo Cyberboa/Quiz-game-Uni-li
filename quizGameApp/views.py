@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.views.generic import View
 from .models import Question
 from .forms import AddQuestionForm
+from django.http import HttpResponseRedirect
 
 # Create your views here.
 """
@@ -47,3 +48,9 @@ class QuestionView(View):
             "form": my_form
         }
         return render(httprequest, "question_create_view.html", context)
+
+    def home_view(request):
+        if request.http_method_names == "GET":
+            form = request.GET
+            print(form + "Das ist meine Methode")
+        return render(request, "question_list.html")

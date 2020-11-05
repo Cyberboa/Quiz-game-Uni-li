@@ -25,7 +25,7 @@ urlpatterns = [
                   path('', QuestionView.get),
                   path('admin/', admin.site.urls),
                   path('welcome/', QuestionView.get),
-                  path('questions/', QuestionView.questionList, name='questions'),
+                  path('questions/', QuestionView.questionList),
                   path('create/', QuestionView.questionCreateView),
                   path('score/', Score.scoreList),
                   path('register/', Register.registerUser),

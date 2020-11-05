@@ -11,7 +11,7 @@
     - venv\Scripts\activate.bat
 - You need to install django in your virtual environment
     - pip install django
-- You also need to install crispy forms (easy layouting)
+- You also need to install crispy forms (easy layout)
     - pip install django-crispy-forms
 - Create superuser for project members (each member needs to do it on his/her own)
     - python manage.py createsuperuser

@@ -27,45 +27,48 @@
 {% endblock mainContent %}
 
 {% block questionListContent %}
-    <div>
-        {% for result in all_questions %}
-            <table>
-                <tr>
-                    <td>{{ result.id }} {{ result.question }} ?</td>
-                </tr>
-                <tr>
-                    {% if result.question_image == "" %}
-                    {% else %}
-                        <td><img src="/media/{{ result.question_image }}"/></td>
-                    {% endif %}
-                </tr>
-                <tr>
-                    <td><input type="radio" id="Option1" class="rb" name="{{ result.id }}"
-                               value="{{ result.option1 }}">{{ result.option1 }}</td>
-                </tr>
-                <tr>
-                    <td><input type="radio" id="Option2" class="rb" name="{{ result.id }}"
-                               value="{{ result.option2 }}">{{ result.option2 }}</td>
-                </tr>
-                <tr>
-                    <td><input type="radio" id="Option3" class="rb" name="{{ result.id }}"
-                               value="{{ result.option3 }}">{{ result.option3 }}</td>
-                </tr>
-                <tr>
-                    <td><input type="radio" id="Option4" class="rb" name="{{ result.id }}"
-                               value="{{ result.option4 }}">{{ result.option4 }}</td>
-                </tr>
-                <tr>
-                    <td><label id="correct_answer" class="rb"
-                               style="display:none;color: limegreen"><b>The correct answer
-                        is: {{ result.correct_answer }}</b></label>
-                    </td>
-                </tr>
-            </table>
-        {% endfor %}
-        <hr/>
-        <input type="submit" value="Click for result" id="btn-question-success" onclick="get_answers();"/>
-        <hr/>
-        <b id="UserAnswers"></b>
-    </div>
+    <form action="" method="get">
+        <div>
+            {% for result in all_questions %}
+                <table>
+                    <tr>
+                        <td>{{ result.id }} {{ result.question }} ?</td>
+                    </tr>
+                    <tr>
+                        {% if result.question_image == "" %}
+                        {% else %}
+                            <td><img src="/media/{{ result.question_image }}"/></td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <td><input type="radio" id="Option1" class="rb" name="{{ result.id }}"
+                                   value="{{ result.option1 }}">{{ result.option1 }}</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" id="Option2" class="rb" name="{{ result.id }}"
+                                   value="{{ result.option2 }}">{{ result.option2 }}</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" id="Option3" class="rb" name="{{ result.id }}"
+                                   value="{{ result.option3 }}">{{ result.option3 }}</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" id="Option4" class="rb" name="{{ result.id }}"
+                                   value="{{ result.option4 }}">{{ result.option4 }}</td>
+                    </tr>
+                    <tr>
+                        <td><label id="correct_answer" class="rb"
+                                   style="display:none;color: limegreen"><b>The correct answer
+                            is: {{ result.correct_answer }}</b></label>
+                        </td>
+                    </tr>
+                </table>
+            {% endfor %}
+            <hr/>
+            <input type="submit" value="Click for result" id="btn-question-success" onclick="get_answers();"/>
+            <input type="submit" value="OK">
+            <hr/>
+            <b id="UserAnswers"></b>
+        </div>
+    </form>
 {% endblock questionListContent %}
