@@ -27,7 +27,8 @@
 {% endblock mainContent %}
 
 {% block questionListContent %}
-    <form action="" method="get">
+    <form method="POST" action="result.html">
+        {% csrf_token %}
         <div>
             {% for result in all_questions %}
                 <table>
@@ -66,7 +67,7 @@
             {% endfor %}
             <hr/>
             <input type="submit" value="Click for result" id="btn-question-success" onclick="get_answers();"/>
-            <input type="submit" value="OK">
+            <input type="submit" value="Check result">
             <hr/>
             <b id="UserAnswers"></b>
         </div>
