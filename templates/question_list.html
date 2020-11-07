@@ -27,7 +27,7 @@
 {% endblock mainContent %}
 
 {% block questionListContent %}
-    <form method="POST" action="result.html">
+    <form method="POST" action="/result/">
         {% csrf_token %}
         <div>
             {% for result in all_questions %}
@@ -43,19 +43,19 @@
                     </tr>
                     <tr>
                         <td><input type="radio" id="Option1" class="rb" name="{{ result.id }}"
-                                   value="{{ result.option1 }}">{{ result.option1 }}</td>
+                                   value="{{ result.option1 }}"/>{{ result.option1 }}</td>
                     </tr>
                     <tr>
                         <td><input type="radio" id="Option2" class="rb" name="{{ result.id }}"
-                                   value="{{ result.option2 }}">{{ result.option2 }}</td>
+                                   value="{{ result.option2 }}"/>{{ result.option2 }}</td>
                     </tr>
                     <tr>
                         <td><input type="radio" id="Option3" class="rb" name="{{ result.id }}"
-                                   value="{{ result.option3 }}">{{ result.option3 }}</td>
+                                   value="{{ result.option3 }}"/>{{ result.option3 }}</td>
                     </tr>
                     <tr>
                         <td><input type="radio" id="Option4" class="rb" name="{{ result.id }}"
-                                   value="{{ result.option4 }}">{{ result.option4 }}</td>
+                                   value="{{ result.option4 }}"/>{{ result.option4 }}</td>
                     </tr>
                     <tr>
                         <td><label id="correct_answer" class="rb"

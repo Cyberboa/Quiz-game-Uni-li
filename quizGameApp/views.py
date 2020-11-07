@@ -3,8 +3,7 @@ from django.shortcuts import render
 from django.views.generic import View
 from .models import Question
 from .forms import AddQuestionForm
-from highScore.models import HighScore
-from django.http import HttpResponseRedirect
+from highScore.forms import AddUserAnswer
 
 # Create your views here.
 """
@@ -40,17 +39,34 @@ class QuestionView(View):
 
     @login_required
     def questionCreateView(httprequest, *args, **kwargs):
-        my_form = AddQuestionForm(httprequest.POST or None)
-        if my_form.is_valid():
-            my_form.save()
-            my_form = AddQuestionForm()
+        add_question_form = AddQuestionForm(httprequest.POST or None)
+
+        if add_question_form.is_valid():
+            add_question_form.save()
+            add_question_form = AddQuestionForm()
 
         context = {
-            "form": my_form
+            "form": add_question_form
         }
+
         return render(httprequest, "question_create_view.html", context)
 
-    def getQuestionResult(request):
-        answers = HighScore.objects.all()
-        print(answers)
+    @login_required
+    def addQuestionResult(request, *args, **kwargs):
+        correct_answer = []
+        user_answer = request.POST
+
+        if request.method != "POST":
+            return render(request, "result.html")
+
+        question_objects = Question.objects.values_list()
+
+        for object in question_objects:
+            correct_answer.append(object[len(object) - 1])
+
+        form = AddUserAnswer(1, 0, request.POST)
+
+        # print(request.user)
+        # print(form.is_valid())
+
         return render(request, "result.html")
