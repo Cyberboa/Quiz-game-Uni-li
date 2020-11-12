@@ -1,10 +1,14 @@
 {% extends 'base.html' %}
 
 {% block mainContent %}
-    <form action="." method="POST">
+    <form action="." method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" name="Save">
     </form>
 
+    {% if img %}
+        Image uploaded latest:
+        <img src="{{ img.image.url }}">
+    {% endif %}
 {% endblock mainContent %}

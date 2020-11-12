@@ -39,7 +39,7 @@ class QuestionView(View):
 
     @login_required
     def questionCreateView(httprequest, *args, **kwargs):
-        add_question_form = AddQuestionForm(httprequest.POST or None)
+        add_question_form = AddQuestionForm(httprequest.POST or None, httprequest.FILES)
 
         if add_question_form.is_valid():
             add_question_form.save()
@@ -64,9 +64,9 @@ class QuestionView(View):
         for object in question_objects:
             correct_answer.append(object[len(object) - 1])
 
-        form = AddUserAnswer(1, 0, request.POST)
+        form = AddUserAnswer(request.POST)
 
-        # print(request.user)
-        # print(form.is_valid())
+        print(form.data)
+        print(form.is_valid())
 
         return render(request, "result.html")

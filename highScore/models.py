@@ -1,10 +1,11 @@
 from django.db import models
+from django.contrib.auth.models import User
 from django.conf import settings
 
 
 # Create your models here.
 class HighScore(models.Model):
-    player = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    player = models.ForeignKey(User, on_delete=models.CASCADE)
     score = models.IntegerField()
     user_answer1 = models.TextField(default="")
     user_answer2 = models.TextField(default="")
