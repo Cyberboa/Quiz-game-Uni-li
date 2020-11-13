@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 
 {% block questionListContent %}
-    <form method="POST" action="/result/">
+    <form method="POST" action="/result/" class="questions">
         {% csrf_token %}
         <div>
             {% for result in all_questions %}
                 <table class="table">
                     <thead class="thead-dark">
                     <tr>
-                        <td>{{ result.id }} {{ result.question }} ?</td>
+                        <td>{{ forloop.counter }}. {{ result.question }}</td>
                     </tr>
                     </thead>
                     <tr>
@@ -18,19 +18,19 @@
                         {% endif %}
                     </tr>
                     <tr>
-                        <td><input type="radio" id="Option1" class="rb" name="user_answer{{ result.id }}"
+                        <td><input type="radio" id="Option1" class="rb" name="user_answer{{ forloop.counter }}"
                                    value="{{ result.option1 }}"/>{{ result.option1 }}</td>
                     </tr>
                     <tr>
-                        <td><input type="radio" id="Option2" class="rb" name="user_answer{{ result.id }}"
+                        <td><input type="radio" id="Option2" class="rb" name="user_answer{{ forloop.counter }}"
                                    value="{{ result.option2 }}"/>{{ result.option2 }}</td>
                     </tr>
                     <tr>
-                        <td><input type="radio" id="Option3" class="rb" name="user_answer{{ result.id }}"
+                        <td><input type="radio" id="Option3" class="rb" name="user_answer{{ forloop.counter }}"
                                    value="{{ result.option3 }}"/>{{ result.option3 }}</td>
                     </tr>
                     <tr>
-                        <td><input type="radio" id="Option4" class="rb" name="user_answer{{ result.id }}"
+                        <td><input type="radio" id="Option4" class="rb" name="user_answer{{ forloop.counter }}"
                                    value="{{ result.option4 }}"/>{{ result.option4 }}</td>
                     </tr>
                     <tr>
