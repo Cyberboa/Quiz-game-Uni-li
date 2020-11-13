@@ -1,3 +1,6 @@
 /.idea/
 /venv/
 /Quiz-game-Uni-li/
+/highScore/migrations/
+/quizGameApp/migrations/
+/quizGameApp/static/css/

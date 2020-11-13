@@ -1,60 +1,36 @@
 {% extends 'base.html' %}
 
-{% block mainContent %}
-    <div style="text-align: center;">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script>
-            $(document).ready(function () {
-                $("#btn-question-success").click(function () {
-                    $(".rb").show();
-                    $(".rb").attr("disabled", true);
-                });
-            });
-
-            function get_answers() {
-                document.getElementById("UserAnswers").innerHTML = "";
-                const input_elements = document.getElementsByTagName('input');
-                for (let index = 0; index < input_elements.length; index++) {
-                    if (input_elements[index].type == "radio") {
-                        if (input_elements[index].checked) {
-                            document.getElementById("UserAnswers").innerHTML += "Q " + input_elements[index].name + " The Answer you have selected is : " + input_elements[index].value + "<br/>";
-                        }
-                    }
-                }
-            }
-        </script>
-    </div>
-{% endblock mainContent %}
-
 {% block questionListContent %}
-    <form method="POST" action="/result/">
+    <form method="POST" action="/result/" class="questions">
         {% csrf_token %}
         <div>
             {% for result in all_questions %}
-                <table>
+                <table class="table">
+                    <thead class="thead-dark">
                     <tr>
-                        <td>{{ result.id }} {{ result.question }} ?</td>
+                        <td>{{ forloop.counter }}. {{ result.question }}</td>
                     </tr>
+                    </thead>
                     <tr>
                         {% if result.question_image == "" %}
                         {% else %}
-                            <td><img src="/media/{{ result.question_image }}"/></td>
+                            <td><img src="/media/{{ result.question_image }}" class="img-thumbnail"/></td>
                         {% endif %}
                     </tr>
                     <tr>
-                        <td><input type="radio" id="Option1" class="rb" name="user_answer{{ result.id }}"
+                        <td><input type="radio" id="Option1" class="rb" name="user_answer{{ forloop.counter }}"
                                    value="{{ result.option1 }}"/>{{ result.option1 }}</td>
                     </tr>
                     <tr>
-                        <td><input type="radio" id="Option2" class="rb" name="user_answer{{ result.id }}"
+                        <td><input type="radio" id="Option2" class="rb" name="user_answer{{ forloop.counter }}"
                                    value="{{ result.option2 }}"/>{{ result.option2 }}</td>
                     </tr>
                     <tr>
-                        <td><input type="radio" id="Option3" class="rb" name="user_answer{{ result.id }}"
+                        <td><input type="radio" id="Option3" class="rb" name="user_answer{{ forloop.counter }}"
                                    value="{{ result.option3 }}"/>{{ result.option3 }}</td>
                     </tr>
                     <tr>
-                        <td><input type="radio" id="Option4" class="rb" name="user_answer{{ result.id }}"
+                        <td><input type="radio" id="Option4" class="rb" name="user_answer{{ forloop.counter }}"
                                    value="{{ result.option4 }}"/>{{ result.option4 }}</td>
                     </tr>
                     <tr>
@@ -66,9 +42,7 @@
                 </table>
             {% endfor %}
             <hr/>
-            <input type="submit" value="Click for result" id="btn-question-success" onclick="get_answers();"/>
             <input type="submit" value="Check result">
-            <hr/>
             <b id="UserAnswers"></b>
         </div>
     </form>
