@@ -5,25 +5,8 @@ from .models import Question
 from .forms import AddQuestionForm
 from highScore.forms import AddUserAnswer
 
+
 # Create your views here.
-"""
-A class used to represent a question
-
-...
-
-Attributes
-----------
-my_dict : dict of str : str and int
-all_questions : QuerySet
-context : dict of all_questions and title
-my_form : AddQuestionForm to add a question to the DB
-
-Methods
--------
-
-"""
-
-
 class QuestionView(View):
 
     def get(httprequest, *args):
