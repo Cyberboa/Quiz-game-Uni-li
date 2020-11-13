@@ -50,15 +50,16 @@ class QuestionView(View):
 
         question_objects = Question.objects.values_list()
 
-        for object in question_objects:
-            correct_answer.append(object[len(object) - 1])
-
         player = request.user.id
         score = 0
         userAnswer1 = userAnswerTemp.data['user_answer1']
         userAnswer2 = userAnswerTemp.data['user_answer2']
         userAnswer3 = userAnswerTemp.data['user_answer3']
         userAnswer4 = userAnswerTemp.data['user_answer4']
+
+        for object in question_objects:
+            correct_answer.append(object[len(object) - 1])
+
         data = {'player': player, 'score': score, 'user_answer1': userAnswer1, 'user_answer2': userAnswer2,
                 'user_answer3': userAnswer3, 'user_answer4': userAnswer4
                 }

@@ -11,7 +11,7 @@ class HighScore(models.Model):
     user_answer2 = models.TextField(default="")
     user_answer3 = models.TextField(default="")
     user_answer4 = models.TextField(default="")
-    created_date = models.DateTimeField(null=True, editable=False, blank=True)
+    created_date = models.DateTimeField(null=True, auto_now_add=True, blank=True)
 
     def __str__(self):
         return str(self.player)
