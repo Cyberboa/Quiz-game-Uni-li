@@ -79,9 +79,9 @@ class QuestionView(View):
         data = {'player': player, 'score': score, 'user_answer1': userAnswer1, 'user_answer2': userAnswer2,
                 'user_answer3': userAnswer3, 'user_answer4': userAnswer4
                 }
-        f = AddUserAnswer(data)
-        print(f)
-        print(f.is_valid())
-        f.save()
+        completeForm = AddUserAnswer(data)
+
+        if completeForm.is_valid():
+            completeForm.save()
 
         return render(request, "result.html")
