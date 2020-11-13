@@ -31,5 +31,6 @@ urlpatterns = [
                   path('score/', Score.scoreList),
                   path('register/', Register.registerUser),
                   path('about/', QuestionView.about),
+                  path('contact/', QuestionView.contact),
                   path('', include("django.contrib.auth.urls")),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
