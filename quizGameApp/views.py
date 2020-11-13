@@ -54,7 +54,7 @@ class QuestionView(View):
     @login_required
     def addQuestionResult(request, *args, **kwargs):
         correct_answer = []
-        user_answer = request.POST
+        userAnswerTemp = AddUserAnswer(request.POST.dict())
 
         if request.method != "POST":
             return render(request, "result.html")
@@ -64,10 +64,18 @@ class QuestionView(View):
         for object in question_objects:
             correct_answer.append(object[len(object) - 1])
 
-        userAnswerForm = AddUserAnswer(request.POST)
-        userAnswerForm.is_valid()
-        # newUserAnswerForm = userAnswerForm()
-        # newUserAnswerForm.user.id = request.user.id
-        # userAnswerForm.save()
+        player = request.user.id
+        score = 0
+        userAnswer1 = userAnswerTemp.data['user_answer1']
+        userAnswer2 = userAnswerTemp.data['user_answer2']
+        userAnswer3 = userAnswerTemp.data['user_answer3']
+        userAnswer4 = userAnswerTemp.data['user_answer4']
+        data = {'player': player, 'score': score, 'user_answer1': userAnswer1, 'user_answer2': userAnswer2,
+                'user_answer3': userAnswer3, 'user_answer4': userAnswer4
+                }
+        f = AddUserAnswer(data)
+        print(f)
+        print(f.is_valid())
+        f.save()
 
         return render(request, "result.html")
