@@ -29,6 +29,12 @@ class QuestionView(View):
     def get(httprequest, *args):
         return render(httprequest, "home.html")
 
+    def contact(httprequest, *args):
+        return render(httprequest, "contact.html")
+
+    def about(httprequest, *args):
+        return render(httprequest, "about.html")
+
     @login_required
     def questionList(httprequest, *args, **kwargs):
         all_questions = Question.objects.all()
