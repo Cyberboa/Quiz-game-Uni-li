@@ -64,9 +64,10 @@ class QuestionView(View):
         for object in question_objects:
             correct_answer.append(object[len(object) - 1])
 
-        form = AddUserAnswer(request.POST)
-
-        print(form.data)
-        print(form.is_valid())
+        userAnswerForm = AddUserAnswer(request.POST)
+        userAnswerForm.is_valid()
+        # newUserAnswerForm = userAnswerForm()
+        # newUserAnswerForm.user.id = request.user.id
+        # userAnswerForm.save()
 
         return render(request, "result.html")
