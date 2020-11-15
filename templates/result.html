@@ -5,28 +5,21 @@
         <h1>The result</h1>
     </div>
     <table class="table">
-        {#        <thead>#}
-        {#        <tr>#}
-        {#            <th>Question</th>#}
-        {#        </tr>#}
-        {#        {% for index,result in all_questions %}#}
-        {#            <tr>#}
-        {#                <th>{{ forloop.counter }}. {{ result.question }}</th>#}
-        {#                <th>{{ value }}</th>#}
-        {#            </tr>#}
-        {#        {% endfor %}#}
-        {#        <tr>#}
-        {#            <th>Your Answer</th>#}
-        {#        </tr>#}
-        {% for key, value in all_user_answers.items %}
-            <tr>
-                {% load index %}
-                <th>{{ all_questions|index:forloop.counter0 }}</th>
-            </tr>
-            <tr>
-                <td>{{ forloop.counter }}. {{ value }}</td>
-            </tr>
+        {% for result in all_result %}
+            <div class="pb-2">
+                <tr>
+                    <th>{{ forloop.counter }}. {{ result.question }}</th>
+                </tr>
+                <tr class="{% if result.correct %}table-danger {% else %}table-success{% endif %}">
+                    <td>{{ result.answer }}</td>
+                </tr>
+                {% if result.correct %}
+                    <tr>
+                        <td><b>Correct Answer:</b> {{ result.correct }}</td>
+                    </tr>
+                {% endif %}
+            <tr><td></td></tr>
+            </div>
         {% endfor %}
-        {#        </thead>#}
     </table>
 {% endblock mainContent %}

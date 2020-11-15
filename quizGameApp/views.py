@@ -1,3 +1,4 @@
+import itertools
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.views.generic import View
@@ -68,35 +69,40 @@ class QuestionView(View):
 
         """Creating the needed variables"""
         correctAnswer = []
+        questionsTemp = []
         userAnswer = {}
+        temp_result = []
+        dict_result = {"all_result": temp_result}
         player = request.user.id
         score = 0
         question_objects = Question.objects.values_list()
-        allQuestions = Question.objects.values_list()
-        dict_result = {
-            "all_questions": allQuestions,
-            "all_user_answers": userAnswer,
-        }
 
         """Adding the correct Answers in correctAnswer"""
         for object in question_objects:
             correctAnswer.append(object[len(object) - 1])
+            temp_result.append({"question": object[len(object) - 7], "answer": "", "correct": object[len(object) - 1]})
 
         """If its not a POST then it will return result.html"""
         if request.method != "POST":
             return render(request, "result.html")
 
         """Adding the user answer into the dictionary"""
+        index = 0
         for key, value in request.POST.items():
 
             """We dont want --> csrfmiddlewaretoken in the dictionary"""
             if "csrfmiddlewaretoken" != key:
                 userAnswer[key] = value
+                temp_result[index].update({"answer": value})
+                index += 1
 
         """If the answer of the user is equal to the correct answer then the score will go up +1"""
+        index = 0
         for key, value in userAnswer.items():
             if value in correctAnswer:
+                temp_result[index].update({"correct": ''})
                 score += 1
+            index += 1
 
         """Creating the data for AddUserAnswer"""
         data = {'player': player, 'score': score, 'user_answer': userAnswer}
