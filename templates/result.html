@@ -2,7 +2,7 @@
 
 {% block mainContent %}
     <div class="jumbotron text-center">
-        <h1>The result</h1>
+        <h1>The Result</h1>
     </div>
     <table class="table">
         {% for result in all_result %}
@@ -18,7 +18,9 @@
                         <td><b>Correct Answer:</b> {{ result.correct }}</td>
                     </tr>
                 {% endif %}
-            <tr><td></td></tr>
+                <tr>
+                    <td></td>
+                </tr>
             </div>
         {% endfor %}
     </table>
