@@ -72,6 +72,11 @@ class QuestionView(View):
         player = request.user.id
         score = 0
         question_objects = Question.objects.values_list()
+        allQuestions = Question.objects.values_list()
+        dict_result = {
+            "all_questions": allQuestions,
+            "all_user_answers": userAnswer,
+        }
 
         """Adding the correct Answers in correctAnswer"""
         for object in question_objects:
@@ -103,4 +108,4 @@ class QuestionView(View):
         if completeForm.is_valid():
             completeForm.save()
 
-        return render(request, "result.html")
+        return render(request, "result.html", dict_result)

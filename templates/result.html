@@ -4,4 +4,29 @@
     <div class="jumbotron text-center">
         <h1>The result</h1>
     </div>
+    <table class="table">
+        {#        <thead>#}
+        {#        <tr>#}
+        {#            <th>Question</th>#}
+        {#        </tr>#}
+        {#        {% for index,result in all_questions %}#}
+        {#            <tr>#}
+        {#                <th>{{ forloop.counter }}. {{ result.question }}</th>#}
+        {#                <th>{{ value }}</th>#}
+        {#            </tr>#}
+        {#        {% endfor %}#}
+        {#        <tr>#}
+        {#            <th>Your Answer</th>#}
+        {#        </tr>#}
+        {% for key, value in all_user_answers.items %}
+            <tr>
+                {% load index %}
+                <th>{{ all_questions|index:forloop.counter0 }}</th>
+            </tr>
+            <tr>
+                <td>{{ forloop.counter }}. {{ value }}</td>
+            </tr>
+        {% endfor %}
+        {#        </thead>#}
+    </table>
 {% endblock mainContent %}
