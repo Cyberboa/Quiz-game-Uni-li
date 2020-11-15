@@ -42,27 +42,29 @@ class QuestionView(View):
 
     @login_required
     def addQuestionResult(request, *args, **kwargs):
-        correct_answer = []
-        userAnswerTemp = AddUserAnswer(request.POST.dict())
+        correctAnswer = []
+        userAnswer = {}
+        score = 0
+        question_objects = Question.objects.values_list()
 
         if request.method != "POST":
             return render(request, "result.html")
 
-        question_objects = Question.objects.values_list()
-
-        player = request.user.id
-        score = 0
-        userAnswer1 = userAnswerTemp.data['user_answer1']
-        userAnswer2 = userAnswerTemp.data['user_answer2']
-        userAnswer3 = userAnswerTemp.data['user_answer3']
-        userAnswer4 = userAnswerTemp.data['user_answer4']
+        for key, value in request.POST.items():
+            if "csrfmiddlewaretoken" != key:
+                userAnswer[key] = value
 
         for object in question_objects:
-            correct_answer.append(object[len(object) - 1])
+            correctAnswer.append(object[len(object) - 1])
 
-        data = {'player': player, 'score': score, 'user_answer1': userAnswer1, 'user_answer2': userAnswer2,
-                'user_answer3': userAnswer3, 'user_answer4': userAnswer4
-                }
+        for key, value in userAnswer.items():
+            if value in correctAnswer:
+                score += 1
+
+        player = request.user.id
+
+        data = {'player': player, 'score': score, 'user_answer': userAnswer}
+
         completeForm = AddUserAnswer(data)
 
         if completeForm.is_valid():

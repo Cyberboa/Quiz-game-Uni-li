@@ -33,17 +33,10 @@
                         <td><input type="radio" id="Option4" class="rb" name="user_answer{{ forloop.counter }}"
                                    value="{{ result.option4 }}"/>{{ result.option4 }}</td>
                     </tr>
-                    <tr>
-                        <td><label id="correct_answer" class="rb"
-                                   style="display:none;color: limegreen"><b>The correct answer
-                            is: {{ result.correct_answer }}</b></label>
-                        </td>
-                    </tr>
                 </table>
             {% endfor %}
             <hr/>
             <input type="submit" value="Check result">
-            <b id="UserAnswers"></b>
         </div>
     </form>
 {% endblock questionListContent %}
