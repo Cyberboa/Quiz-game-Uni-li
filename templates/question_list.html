@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 
 {% block questionListContent %}
+    <div class="jumbotron text-center">
+        <h1>Uni Li Questions</h1>
+    </div>
     <form method="POST" action="/result/" class="questions">
         {% csrf_token %}
         <div>
