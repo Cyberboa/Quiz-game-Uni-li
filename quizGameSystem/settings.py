@@ -129,5 +129,5 @@ LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
 
 # config/settings.py
-DEFAULT_FROM_EMAIL = 'adrian.baumgartner@uni.li'
+DEFAULT_FROM_EMAIL = 'adrian.baumgartner@uni.li' # Adrian_contactUs_page
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
