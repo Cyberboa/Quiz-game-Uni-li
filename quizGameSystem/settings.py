@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'registerUser',
     'django_sass',
     'highScore',
+    'contactUs',
 ]
 
 MIDDLEWARE = [
