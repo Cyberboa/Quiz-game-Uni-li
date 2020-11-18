@@ -1,11 +1,130 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% load static %}
+
+{% block mainContent %}
+
+<div class="jumbotron text-center">
+  <h1>About Us</h1>
+</div>
+
+ <div class="about-section">
+
+      <h4>
+         <p style="text-align:center">
+    <em> "The strength of the team is each individual member. The strength of each member is the team"</em>
+          <p/>
+     </h4>
+
+
+</div>
+
+<h2 style="text-align:center">Our Team</h2>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="{% static "Claudia Schedler.jpg" %}" alt="Claudia" width="600" height="500" />
+      <div class="container">
+        <h2>Claudia</h2>
+        <h6 class="title">Responsible in the Project for:</h6>
+        <ul>
+          <li>Organization</li>
+          <li>Documentation</li>
+        </ul>
+        <p>Hi everybody! My name is Claudia and I'm 22 years old. <br>
+           I live in a small city in Austria called Sulz. I would <br>
+           describe myself as an open-minded and humours person.
+        </p>
+
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <div class="icon-bar">
+            <h6 class="_14">Follow me on:</h6>
+            <a href="https://www.facebook.com/" class="facebook"><i class="fa fa-facebook"></i></a>
+            <a href="https://twitter.com/" class="twitter"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.google.com/" class="google"><i class="fa fa-google"></i></a>
+            <a href="https://www.linkedin.com/" class="linkedin"><i class="fa fa-linkedin"></i></a>
+            <a href="https://www.youtube.com/" class="youtube"><i class="fa fa-youtube"></i></a>
+        </div>
+
+          <p>
+              <button onclick="window.location.href='mailto:claudia.schedler@uni.li';">E-Mail me</button>
+          </p>
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="column">
+    <div class="card">
+      <img src="{% static "adrian.jpeg" %}" alt="adrian" width="600" height ="500" />
+      <div class="container">
+        <h2>Adrian</h2>
+        <h6 class="title">Responsible in the Project for:</h6>
+        <ul>
+          <li>Organization</li>
+          <li>Documentation</li>
+        </ul>
+        <p>Hi everybody! My name is Adrian and I'm 27 years old. <br>
+           I live in a small city in Switzerland called Kiesern. I would <br>
+           describe myself as an open-minded and humours person.
+        </p>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <div class="icon-bar">
+            <h6 class="_14">Follow me on:</h6>
+            <a href="https://www.facebook.com/" class="facebook"><i class="fa fa-facebook"></i></a>
+            <a href="https://twitter.com/" class="twitter"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.google.com/" class="google"><i class="fa fa-google"></i></a>
+            <a href="https://www.linkedin.com/" class="linkedin"><i class="fa fa-linkedin"></i></a>
+            <a href="https://www.youtube.com/" class="youtube"><i class="fa fa-youtube"></i></a>
+        </div>
+          <p>
+              <button onclick="window.location.href='mailto:claudia.schedler@uni.li';">E-Mail me</button>
+          </p>
+    </div>
+  </div>
+</div>
+
+<div class="column">
+    <div class="card">
+      <img src="{% static "roshan.jpeg" %}" alt="roshan" width="600" height ="500" />
+      <div class="container">
+        <h2>Roshan</h2>
+        <h6 class="title">Responsible in the Project for:</h6>
+        <ul>
+          <li>Coding</li>
+          <li>Testing</li>
+        </ul>
+        <p>Hi everybody! My name is Claudia and I'm 22 years old. <br>
+           I live in a small city in Austria called Sulz. I would <br>
+           describe myself as an open-minded and humours person.
+        </p>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <div class="icon-bar">
+            <h6 class="_14">Follow me on:</h6>
+            <a href="https://www.facebook.com/" class="facebook"><i class="fa fa-facebook"></i></a>
+            <a href="https://twitter.com/" class="twitter"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.google.com/" class="google"><i class="fa fa-google"></i></a>
+            <a href="https://www.linkedin.com/" class="linkedin"><i class="fa fa-linkedin"></i></a>
+            <a href="https://www.youtube.com/" class="youtube"><i class="fa fa-youtube"></i></a>
+        </div>
+          <p>
+              <button onclick="window.location.href='mailto:roshan.hausmann@uni.li';">E-Mail me</button>
+          </p>
+
+         </div>
+     </div>
+  </div>
+</div>
+
+
+{% endblock mainContent %}
+
+
+
+
+
+
+
 
