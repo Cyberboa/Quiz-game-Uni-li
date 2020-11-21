@@ -29,7 +29,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'sendemail.apps.SendemailConfig',  # Adrian_contactUs_page
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,7 +41,6 @@ INSTALLED_APPS = [
     'registerUser',
     'django_sass',
     'highScore',
-    'contactUs',  # Adrian_contactUs_page
 ]
 
 MIDDLEWARE = [
@@ -127,7 +125,3 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
-
-# config/settings.py
-DEFAULT_FROM_EMAIL = 'adrian.baumgartner@uni.li' # Adrian_contactUs_page
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
