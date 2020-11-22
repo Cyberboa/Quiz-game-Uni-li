@@ -6,7 +6,16 @@
 
 <div class="jumbotron text-center">
   <h1>About Us</h1>
-
+<p>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <div class="icon-bar">
+            <a href="https://www.facebook.com/" class="facebook"><i class="fa fa-facebook"></i></a>
+            <a href="https://twitter.com/" class="twitter"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.google.com/" class="google"><i class="fa fa-google"></i></a>
+            <a href="https://www.linkedin.com/" class="linkedin"><i class="fa fa-linkedin"></i></a>
+            <a href="https://www.youtube.com/" class="youtube"><i class="fa fa-youtube"></i></a>
+        </div>
+</p>
 
 </div>
 
@@ -14,7 +23,7 @@
 
          <p style="text-align:center">
     <em>
-        <p color="black">The strength of the team is each individual member. The strength of each member is the team<p/>
+        <font color="black">The strength of the team is each individual member. The strength of each member is the team <font/>
     </em>
           <p/>
 
@@ -25,12 +34,11 @@
 <div class="row">
   <div class="column">
     <div class="card">
-      <img src="{% static "Claudia Schedler.jpg" %}" alt="Claudia" width=100% />
+      <img class="bild" src="{% static "Claudia Schedler.jpg" %}" alt="Claudia" width=100% />
       <div class="container">
         <h2>Claudia</h2>
-        <b class="title">22 years old, currently living in Sulz, AT</b>
-
-         <em>catlover & teamplayer</em>
+        <b class="title">22 years old, currently living in Sulz, AT</b> <br> <br>
+          <em>catlover,teamplayer & always in the mood for an ice cold beer</em> <br> <br>
           <p>Hobbies: </p>
         <ul>
           <li>Soccer</li>
@@ -56,16 +64,16 @@
 
   <div class="column">
     <div class="card">
-      <img src="{% static "adrian.jpeg" %}" alt="adrian" width=100% />
+      <img class="bild" src="{% static "adrian.jpeg" %}" alt="adrian" width=100% />
       <div class="container">
         <h2>Adrian</h2>
-        <h6 class="title">27 years old, currently living in Kriessern, CH</h6>
-      <em>sport-fanatic & open-minded</em>
+       <b class="title">27 years old, currently living in Kriessern, CH</b> <br> <br>
+      <em>sport-fanatic & open-minded</em><br> <br>
           <p>Hobbies: </p>
         <ul>
           <li>Soccer</li>
           <li>Biking/Hiking</li>
-          <li>drinking</li>
+          <li>Drinking beer with friends</li>
         </ul>
         <p> Education:</p>
            <ul>
@@ -83,18 +91,23 @@
 
 <div class="column">
     <div class="card">
-      <img src="{% static "roshan.jpeg" %}" alt="roshan" width="395" height ="435" />
+      <img class="bild" src="{% static "roshan.jpeg" %}" alt="roshan" width=100% />
       <div class="container">
         <h2>Roshan</h2>
-        <h6 class="title">Responsible in the Project for:</h6>
+        <b class="title">31 years old, currently living in Rheineck, CH</b> <br> <br>
+          <em>doglover & teamplayer</em><br> <br>
+           <p>Hobbies: </p>
         <ul>
-          <li>Coding</li>
-          <li>Testing</li>
+          <li>dog petting</li>
+          <li>gaming</li>
+          <li>sports</li>
         </ul>
-        <p>Hi everybody! My name is Claudia and I'm 22 years old. <br>
-           I live in a small city in Austria called Sulz. I would <br>
-           describe myself as an open-minded and humours person.
-        </p>
+         <p> Education:</p>
+           <ul>
+          <li>Information Systems, Zurich Kalaidos  </li>
+          <li>Working at xxx</li>
+          <li>Technical Background</li>
+        </ul>
 
           <p>
               <button onclick="window.location.href='mailto:roshan.hausmann@uni.li';">E-Mail me</button>
@@ -105,16 +118,7 @@
   </div>
 </div>
 
-<p>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <div class="icon-bar">
-            <a href="https://www.facebook.com/" class="facebook"><i class="fa fa-facebook"></i></a>
-            <a href="https://twitter.com/" class="twitter"><i class="fa fa-twitter"></i></a>
-            <a href="https://www.google.com/" class="google"><i class="fa fa-google"></i></a>
-            <a href="https://www.linkedin.com/" class="linkedin"><i class="fa fa-linkedin"></i></a>
-            <a href="https://www.youtube.com/" class="youtube"><i class="fa fa-youtube"></i></a>
-        </div>
-</p>
+
 
 
 {% endblock mainContent %}

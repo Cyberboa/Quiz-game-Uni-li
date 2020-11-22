@@ -55,7 +55,7 @@ html {
 }
 
 .title {
-  color: black;
+  color: grey;
   font-size:18px;
 }
 
@@ -75,13 +75,19 @@ html {
   background-color: #555;
 }
 
+.bild {
+    width: 100%;
+    height: auto;
+}
+
+
 /* Fixed/sticky icon bar (vertically aligned 50% from the top of the screen) */
 .icon-bar {
   position: fixed;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+  top: 20%;
+  -webkit-transform: translateY(-20%);
+  -ms-transform: translateY(-20%);
+  transform: translateY(-20%);
 }
 
 /* Style the icon bar links */
@@ -126,7 +132,7 @@ html {
   color: white;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 600px) {
 .column {
  width: 100%
 
