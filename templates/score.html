@@ -4,13 +4,30 @@
     <div class="jumbotron text-center">
         <h1>Uni Li Score List</h1>
     </div>
-    <div>
-        {% for result in all_scores %}
-            <table>
-                <tr>
-                    <td>{{ result.player }} {{ result.score }} {{ result.created_date }}</td>
-                </tr>
-            </table>
-        {% endfor %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <h4>Player</h4>
+            </div>
+            <div class="col-sm">
+                <h4>Points</h4>
+            </div>
+            <div class="col-sm">
+                <h4>Play date</h4>
+            </div>
+        </div>
+        <div class="row">
+            {% for result in all_scores %}
+                <div class="col-sm">
+                    {{ result.player }}
+                </div>
+                <div class="col-sm">
+                    {{ result.score }}
+                </div>
+                <div class="col-sm">
+                    {{ result.created_date }}
+                </div>
+            {% endfor %}
+        </div>
     </div>
 {% endblock mainContent %}
