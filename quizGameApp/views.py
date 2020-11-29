@@ -52,14 +52,19 @@ class QuestionView(View):
 
     @login_required
     def questionCreateView(httprequest, *args, **kwargs):
-        add_question_form = AddQuestionForm(httprequest.POST or None, httprequest.FILES)
-        """check add_question_form"""
-        if add_question_form.is_valid():
-            add_question_form.save()
+        if httprequest.method == "POST":
+            add_question_form = AddQuestionForm(httprequest.POST or None, httprequest.FILES)
+            if add_question_form.is_valid():
+                add_question_form.save()
+                add_question_form = AddQuestionForm()
+                context = {
+                    "form": add_question_form
+                }
+        else:
             add_question_form = AddQuestionForm()
-        context = {
-            "form": add_question_form
-        }
+            context = {
+                "form": add_question_form
+            }
         return render(httprequest, "question_create_view.html", context)
 
     @login_required
