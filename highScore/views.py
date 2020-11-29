@@ -9,6 +9,8 @@ class Score(View):
     @login_required
     def scoreList(httprequest, *args, **kwargs):
         ordered_all_scores = HighScore.objects.order_by('-score')
+        # print(ordered_all_scores)
+        # print(ordered_all_scores.values_list()[0][2])
         dict_score = {
             "all_scores": ordered_all_scores,
         }
