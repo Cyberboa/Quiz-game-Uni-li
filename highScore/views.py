@@ -8,8 +8,8 @@ from .models import HighScore
 class Score(View):
     @login_required
     def scoreList(httprequest, *args, **kwargs):
-        all_scores = HighScore.objects.all()
+        ordered_all_scores = HighScore.objects.order_by('-score')
         dict_score = {
-            "all_scores": all_scores,
+            "all_scores": ordered_all_scores,
         }
         return render(httprequest, "score.html", dict_score)

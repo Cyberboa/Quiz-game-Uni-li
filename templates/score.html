@@ -6,25 +6,31 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-sm">
+            <div class="col-3">
+                <h4>Rank</h4>
+            </div>
+            <div class="col-3">
                 <h4>Player</h4>
             </div>
-            <div class="col-sm">
+            <div class="col-3">
                 <h4>Points</h4>
             </div>
-            <div class="col-sm">
+            <div class="col-3">
                 <h4>Play date</h4>
             </div>
         </div>
         <div class="row">
             {% for result in all_scores %}
-                <div class="col-sm">
+                <div class="col-3">
+                    {{ forloop.counter }}
+                </div>
+                <div class="col-3">
                     {{ result.player }}
                 </div>
-                <div class="col-sm">
+                <div class="col-3">
                     {{ result.score }}
                 </div>
-                <div class="col-sm">
+                <div class="col-3">
                     {{ result.created_date }}
                 </div>
             {% endfor %}
