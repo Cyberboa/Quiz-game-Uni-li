@@ -133,7 +133,12 @@ html {
   color: white;
 }
 
+.audio {
+  position:absolute;
+  right:2em;
+  bottom:5em;
 
+}
 
 @media screen and (max-width: 600px) {
   .column {
