@@ -24,7 +24,6 @@ from highScore.views import Score
 urlpatterns = [
                   path('', QuestionView.home),
                   path('admin/', admin.site.urls),
-                  path('welcome/', QuestionView.home),
                   path('questions/', QuestionView.questionList),
                   path('result/', QuestionView.addQuestionResult),
                   path('create/', QuestionView.questionCreateView),
