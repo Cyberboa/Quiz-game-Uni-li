@@ -22,7 +22,7 @@ class Contact(models.Model):
     lastname = models.CharField(max_length=200)
     email = models.EmailField()
     phonenumber = models.CharField(max_length=200)
-    message = models.CharField(max_length=500)
+    message = models.TextField()
 
     def __str__(self):
         return self.firstname
