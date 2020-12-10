@@ -14,3 +14,15 @@ class Question(models.Model):
 
     def __str__(self):
         return self.question
+
+
+# Create function submit button (Adi)
+class Contact(models.Model):
+    firstname = models.CharField(max_length=200)
+    lastname = models.CharField(max_length=200)
+    email = models.EmailField()
+    phonenumber = models.CharField(max_length=200)
+    message = models.CharField(max_length=500)
+
+    def __str__(self):
+        return self.firstname

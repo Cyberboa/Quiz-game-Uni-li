@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.views.generic import View
 from .models import Question
-from .forms import AddQuestionForm
+from .forms import AddQuestionForm, AddContactForm
 from highScore.forms import AddUserAnswer
 
 
@@ -36,8 +36,22 @@ class QuestionView(View):
     def home(httprequest, *args):
         return render(httprequest, "home.html")
 
-    def contact(httprequest, *args):
-        return render(httprequest, "contact.html")
+    def contact(httprequest, *args, **kwargs):
+        if httprequest.method == "POST":
+            add_contact_form = AddContactForm(httprequest.POST or None)
+            print(add_contact_form)
+            if add_contact_form.is_valid():
+                add_contact_form.save()
+                add_contact_form = AddContactForm()
+                contact_fields = {
+                    "form": add_contact_form
+                }
+        else:
+            add_contact_form = AddContactForm()
+            contact_fields = {
+                "form": add_contact_form
+            }
+        return render(httprequest, "contact.html", contact_fields)
 
     def about(httprequest, *args):
         return render(httprequest, "about.html")
