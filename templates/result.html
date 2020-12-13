@@ -5,8 +5,8 @@
         <h1>The Result</h1>
     </div>
     <table class="table">
-        {% for result in all_result %}
-            <div class="pb-2">
+        <div class="pb-2">
+            {% for result in all_result %}
                 <tr>
                     <th>{{ forloop.counter }}. {{ result.question }}</th>
                 </tr>
@@ -21,7 +21,7 @@
                 <tr>
                     <td></td>
                 </tr>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </table>
 {% endblock mainContent %}

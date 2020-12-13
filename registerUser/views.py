@@ -21,7 +21,7 @@ class Register(View):
             form = RegisterForm(response.POST)
             if form.is_valid():
                 form.save()
-            return redirect("/welcome/")
+            return redirect("/")
 
         else:
             form = RegisterForm()
