@@ -3,15 +3,15 @@
 {% load crispy_forms_tags %}
 
 {% block mainContent %}
-<div class="jumbotron text-center">
-    <h1>Contact us</h1>
-</div>
-<form action="." method="POST" enctype="multipart/form-data">
-    <div class="container">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <input class="btn btn-primary" type="submit" name="Save">
+    <div class="jumbotron text-center">
+        <h1>Contact us</h1>
     </div>
-</form>
+    <form action="." method="POST" enctype="multipart/form-data">
+        <div class="container">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <input class="btn btn-primary" type="submit" name="Save" value="Send">
+        </div>
+    </form>
 
 {% endblock mainContent %}

@@ -9,5 +9,6 @@ class HighScore(models.Model):
     user_answer = models.JSONField(default=list)
     created_date = models.DateTimeField(null=True, auto_now_add=True, blank=True)
 
+    # Show player name in Admin
     def __str__(self):
         return str(self.player)

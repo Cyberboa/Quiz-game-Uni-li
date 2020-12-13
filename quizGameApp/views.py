@@ -39,7 +39,6 @@ class QuestionView(View):
     def contact(httprequest, *args, **kwargs):
         if httprequest.method == "POST":
             add_contact_form = AddContactForm(httprequest.POST or None)
-            print(add_contact_form)
             if add_contact_form.is_valid():
                 add_contact_form.save()
                 add_contact_form = AddContactForm()

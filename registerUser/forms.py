@@ -5,20 +5,12 @@ from django.contrib.auth.models import User
 
 
 class RegisterForm(UserCreationForm):
+    """
+      A class used to input a new user to the database.
+
+      """
     email = forms.EmailField()
 
     class Meta:
         model = User
         fields = ["username", "email", "password1", "password2"]
-
-# Adrian_contactUs_page
-class ContactForm(forms.Form):
-    from_email = forms.EmailField(required=True)
-    subject = forms.CharField(required=True)
-    message = forms.CharField(widget=forms.Textarea, required=True)
-
-# Adrian_contactUs_page
-class ContactForm(forms.Form):
-    from_email = forms.EmailField(required=True)
-    subject = forms.CharField(required=True)
-    message = forms.CharField(widget=forms.Textarea, required=True)
